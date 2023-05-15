@@ -3,3 +3,4 @@
 __pycache__
 install/docker/file
 /myapp/static/assets
+.nohup.out
