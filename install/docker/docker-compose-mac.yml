@@ -18,6 +18,7 @@ services:
       REDIS_PORT: '6379'
       REDIS_PASSWORD: admin
       MYSQL_SERVICE: 'mysql+pymysql://root:admin@host.docker.internal:3306/myapp?charset=utf8'
+#      MYSQL_SERVICE: 'mysql+pymysql://root:password@127.0.0.1:3306/myapp?charset=utf8'
       ENVIRONMENT: DEV
 
     ports:

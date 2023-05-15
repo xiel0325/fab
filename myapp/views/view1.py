@@ -47,12 +47,12 @@ import pysnooper
 
 
 
-# 定义数据表视图
+# 定义数据表视图 可以类比为controller
 class Model1_ModelView(MyappModelView):
     datamodel = SQLAInterface(Model1)
 
 
-# 添加model的前后端
+# 添加model的前后端，也就是说交给框架进行管理
 appbuilder.add_view(baseview=Model1_ModelView, name="视图1", icon='fa-list',category='菜单1', category_icon='fa-window-maximize')
 
 
@@ -176,4 +176,7 @@ appbuilder.add_link(name="Openlink", label=_("链接1"), href="http://www.baidu.
 appbuilder.add_link(name="App", label=_("link模板"), href="/myapp/app/2", icon="fa-video-camera",
                     category_icon="fa-window-maximize", category="模板", category_label=__("模板"))
 appbuilder.add_link(name="App", label=_("搜索模板"), href="/myapp/search", icon="fa-rocket",
+                    category_icon="fa-window-maximize", category="模板", category_label=__("模板"))
+
+appbuilder.add_link(name="App", label=("测试模版"),href="/myapp/search", icon="fa-rocket",
                     category_icon="fa-window-maximize", category="模板", category_label=__("模板"))

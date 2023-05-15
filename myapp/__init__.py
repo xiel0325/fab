@@ -42,6 +42,7 @@ if conf.get('DATA_DIR',''):
     if not os.path.exists(conf['DATA_DIR']):
         os.makedirs(conf['DATA_DIR'])
 
+print("=======" * 20)
 print(conf.get('SQLALCHEMY_DATABASE_URI',''))
 
 #################################################################
@@ -104,13 +105,16 @@ def get_manifest():
 
 #######################################blueprints##########################
 
-for bp in conf.get("BLUEPRINTS"):
-    try:
-        print("Registering blueprint: '{}'".format(bp.name))
-        app.register_blueprint(bp)
-    except Exception as e:
-        print("blueprint registration failed")
-        logging.exception(e)
+blueprints = conf.get("BLUEPRINTS")
+
+if blueprints is not None and len(blueprints) > 0:
+    for bp in blueprints:
+        try:
+            print("Registering blueprint: '{}'".format(bp.name))
+            app.register_blueprint(bp)
+        except Exception as e:
+            print("blueprint registration failed")
+            logging.exception(e)
 
 if conf.get("SILENCE_FAB"):
     logging.getLogger("flask_appbuilder").setLevel(logging.ERROR)

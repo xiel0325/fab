@@ -17,6 +17,8 @@ logger = logging.getLogger(__name__)
 def session_scope(nullpool: bool) -> Iterator[Session]:
     """Provide a transactional scope around a series of operations."""
     database_uri = app.config["SQLALCHEMY_DATABASE_URI"]
+    print("hjjjjjjj" * 20)
+    print(database_uri)
     if nullpool:
         engine = create_engine(database_uri, poolclass=NullPool)
         session_class = sessionmaker()

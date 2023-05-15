@@ -506,7 +506,8 @@ REDIS_PASSWORD = os.getenv('REDIS_PASSWORD', 'admin')   # default must set None
 REDIS_HOST = os.getenv('REDIS_HOST', '127.0.0.1')
 REDIS_PORT = os.getenv('REDIS_PORT', '6379')
 WEBDRIVER_BASEURL=os.getenv('WEBDRIVER_BASEURL', 'http://127.0.0.1/')
-SQLALCHEMY_DATABASE_URI = os.getenv('MYSQL_SERVICE','mysql+pymysql://root:admin@127.0.0.1:3306/myapp?charset=utf8')  # default must set None
+SQLALCHEMY_DATABASE_URI = os.getenv('MYSQL_SERVICE','mysql+pymysql://root:password@127.0.0.1:3306/myapp?charset=utf8')  # default must set None
+# SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:admin@host.docker.internal:3306/myapp?charset=utf8'
 
 from celery.schedules import crontab
 from werkzeug.contrib.cache import RedisCache
