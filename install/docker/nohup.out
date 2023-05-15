@@ -1,0 +1,3 @@
+myapp Pulling 
+myapp Error 
+Error response from daemon: Head "https://registry-1.docker.io/v2/tencentmusic/myapp/manifests/2020.10.01": Get "https://auth.docker.io/token?account=xiel&scope=repository%3Atencentmusic%2Fmyapp%3Apull&service=registry.docker.io": net/http: request canceled (Client.Timeout exceeded while awaiting headers)

@@ -1,4 +1,4 @@
-{% extends "appbuilder/base.html" %}
+{#{% extends "appbuilder/base.html" %}#}
 
 {% block add_tail_js %}
 <script src="{{url_for('appbuilder.static',filename='js/marked.min.js')}}"></script>
@@ -7,6 +7,7 @@
 {% block content %}
 <div class="di-home">
     {% for item in data %}
+        echo data
     {% if item['type'] == 'title' %}
     <!-- 标题栏 -->
     <h3 class="title">{{ item['content'] }}</h3>
@@ -67,6 +68,7 @@
         });
 
         document.querySelectorAll('.markdown').forEach(item => {
+            console.log("msamsma")
             item.innerHTML = marked(item.textContent.trim())
             item.classList.remove('loading');
         });
