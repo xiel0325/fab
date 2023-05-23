@@ -1,0 +1,60 @@
+
+1.python写web页面使用的是jinja2
+
+2.在 Python 内部生成 HTML 不好玩，且相当笨拙。因为您必须自己负责 HTML 转义， 以确保应用的安全。因此， Flask 自动为您配置 Jinja2 模板引擎。
+
+3.在Python中，什么是模版？就是在一个静态HTML加入一些类似变量的标签，然后引擎在渲染这个HTML时候会动态的把变量填入内容，生成一个最终的HTML。
+什么是模版引擎？其实就是一种能解析类似Python语言的标记语言的解释器。
+比如我们在HTML模版中输入一个`<p> {{ post.title }} </p>`，显然这不是真正的HTML语法。但是当Jinja2解释器读取到`{{ ...}}`后知道里面是一个变量，那么就把这个变量替换为真正的值，
+最后翻译出来就变成了`<p> 大标题 </p>`这样的HTML内容。
+
+4.Jinja2是一个模版语言，只是类似Python，比较符合Python语法，但不完全相同！
+
+-- 总结，也就是说jinja2的作用，是在view中将model和模版(html)进行绑定和填充，同时jinja2还有一些自己的语法，支持继承
+
+5.继承：
+···
+   1.模板继承包含基本模板和子模板。其中基本模板里包含了你这个网站里的基本元素的基本骨架，但是里面有一些空的或者是不完善的块（block）需要用子模板来填充。
+     如基本模板base.html为：
+     <!doctype html public "-//w3c//dtd html 4.01//en">
+     <html lang="en">
+     <html xmlns="http://www.w3.org/1999/xhtml">
+     <head>
+         {% block head %}
+         <link rel="stylesheet" href="style.css" />
+         <title>{% block title %}{% endblock %} - my webpage</title>
+         {% endblock %}
+     </head>
+     <body>
+         <div id="content">{% block content %}{% endblock %}</div>
+         <div id="footer">
+             {% block footer %}
+                 © copyright 2008 by <a href="http://domain.invalid/">you</a>.
+             {% endblock %}
+         </div>
+     </body>
+     -- 其中用黑色粗体标出了许多块，head，title，content和footer块为空块需要子模板填充；
+     -- head和footer本身有内容，可以填充也可以继承。head继承：- my webpage，footer继承&copy; copyright 2008 by <a href="http://domain.invalid/">you</a>.
+
+     2.子模板如下：
+       {% extends "base.html" %}
+       {% block title %}index{% endblock %}
+       {% block head %}
+           {{ super() }}
+           <style type="text/css">
+               .important { color: #336699; }
+           </style>
+       {% endblock %}
+       {% block content %}
+           <h1>index</h1>
+           <p class="important">
+             welcome on my awesome homepage.
+           </p>
+       {% endblock %}
+    -- 成功运行后将把子模板中定义的各个子块填充到基本模板后输出。
+    -- 特别注意的是{{super()}}的意思是不仅用子模板中的内容填充，也要调用基本模板中的部分内容。
+    -- 该子模板并未定义footer块的内容，因此在输出的结果中footer块将保留基本模板中的内容。
+···
+
+[1]:https://wsgzao.github.io/post/jinja/
+[2]:https://www.cnblogs.com/leeronggui/p/5393787.html

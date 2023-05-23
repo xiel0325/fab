@@ -1,13 +1,13 @@
-{#{% extends "appbuilder/base.html" %}#}
+{% extends "myapp/base.html" %}
 
-{% block add_tail_js %}
-<script src="{{url_for('appbuilder.static',filename='js/marked.min.js')}}"></script>
-{% endblock %}
+{#{% block add_tail_js %}#}
+{#<script src="{{url_for('appbuilder.static',filename='js/marked.min.js')}}"></script>#}
+{#{% endblock %}#}
 
 {% block content %}
 <div class="di-home">
     {% for item in data %}
-        echo data
+        <h3>{{ item['content'] }}</h3>
     {% if item['type'] == 'title' %}
     <!-- 标题栏 -->
     <h3 class="title">{{ item['content'] }}</h3>

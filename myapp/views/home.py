@@ -75,13 +75,13 @@ class Myapp(BaseMyappView):
                     'content': '',
                 }, {
                     'id': 4,
-                    'type': 'markdown',
+                    'type': 'test',
                     'url': 'https://www.google.com/',
                     'content': '## <center>Hello Markdown</center>\n\n<center><img src="https://pic3.zhimg.com/v2-2a56e92cf72cd1268d299f47b8d2cf14_r.jpg" width="60%" /></center>',
                 }, {
                     'id': 5,
                     'type': 'text',
-                    'url': 'https://cn.bing.com/',
+                    'url': 'https://www.baidu.com/',
                     'content': '这里也可以直接描述文字内容',
                 }, {
                     'id': 6,
@@ -92,7 +92,7 @@ class Myapp(BaseMyappView):
                 }, {
                     'id': 7,
                     'type': 'base',
-                    'url': 'https://cn.bing.com/',
+                    'url': 'https://www.baidu.com/',
                     'cover': 'https://pngimg.com/uploads/aston_martin/aston_martin_PNG55.png',
                     'content': '底部阴影显示1',
                 }, {

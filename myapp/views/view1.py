@@ -56,6 +56,7 @@ class Model1_ModelView(MyappModelView):
 appbuilder.add_view(baseview=Model1_ModelView, name="视图1", icon='fa-list',category='菜单1', category_icon='fa-window-maximize')
 
 
+
 # 定义数据表视图
 class Model1_ModelView_Api(MyappModelRestApi):
     datamodel = SQLAInterface(Model1)
@@ -159,7 +160,7 @@ class Model2_ModelView(ModelView):
 
 
 # 添加视图和菜单
-appbuilder.add_view(Model2_ModelView, "视图2", icon='fa-list',category='菜单1', category_icon='fa-window-maximize')
+appbuilder.add_view(Model2_ModelView, "视图2", icon='fa-list',category='菜单2', category_icon='fa-window-maximize')
 
 
 

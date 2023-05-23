@@ -196,7 +196,7 @@ class MyIndexView(IndexView):
     def index(self):
         if not g.user or not g.user.get_id():
             return redirect(appbuilder.get_url_for_login)
-        return redirect("/myapp/home")
+        return redirect("/myapp/home") # 重定向，就是在客户端提交请求后，本来是访问A页面，结果，后台给了B页面，当然，B页面中才有需要的信息。就是调用自己内部的/myapp/home方法
         # return redirect('pipeline_modelview/list/?_flt_2_name=')
 
 

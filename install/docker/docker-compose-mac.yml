@@ -66,4 +66,5 @@ services:
 #      - ./config.py:/home/myapp/myapp/config.py
 
 
-
+# 项目启动
+#  docker-compose -f docker-compose-mac.yml  up
